@@ -1,4 +1,4 @@
-package co.com.callenge
+package co.com.challenge
 
 import org.junit.Test
 

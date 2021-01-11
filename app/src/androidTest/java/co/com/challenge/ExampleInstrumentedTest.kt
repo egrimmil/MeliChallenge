@@ -1,4 +1,4 @@
-package co.com.callenge
+package co.com.challenge
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
