@@ -10,13 +10,19 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
-import co.com.challenge.FirstFragment
 import co.com.challenge.R
 import co.com.challenge.databinding.ActivityMainBinding
+import co.com.challenge.domain.repository.ProductsRepository
+import co.com.challenge.domain.useCase.ProductsUseCase
+import co.com.challenge.presentation.viewModels.ProductListViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private val viewModel : ProductListViewModel by lazy{
+        ProductListViewModel(ProductsUseCase(ProductsRepository()))
+    }
 
     companion object{
         fun startActivity(context: Context){
@@ -63,5 +69,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun doMySearch(query: String) {
         Toast.makeText(this, query, Toast.LENGTH_LONG).show()
+        viewModel.callProducts(query)
     }
 }

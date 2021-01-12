@@ -4,6 +4,9 @@ plugins {
     id 'kotlin-kapt'
 }
 
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
 android {
     compileSdkVersion versions.compilesdk
     buildToolsVersion versions.buildTools
@@ -61,7 +64,12 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
 
-    /*RxJava*/
+    // Print Request
+    implementation('com.github.ihsanbal:LoggingInterceptor:3.1.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+
+    // RxJava
     implementation "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
     implementation "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
     implementation "io.reactivex.rxjava2:rxjava:$versions.rxjava"
@@ -69,4 +77,11 @@ dependencies {
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+
+    // Dagger
+    implementation 'com.google.dagger:dagger:2.27'
+    kapt 'com.google.dagger:dagger-compiler:2.23.1'
+
+    // Lottie
+    implementation 'com.airbnb.android:lottie:3.4.0'
 }

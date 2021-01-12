@@ -7,9 +7,11 @@
 
     <!-- SearchActivity -->
     <string name="sea_desc">¿Que deseas encontrar?</string>
-    <string name="next">Next</string>
+
+    <!-- FragmentFirst -->
+    <string name="frag_fir_error">Ha ocurrido un error, por favor vuelve a intentar</string>
+    <string name="frag_fir_error_empty">No se encontraron productos relacionados</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
