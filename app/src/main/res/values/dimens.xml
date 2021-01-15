@@ -1,3 +1,20 @@
 <resources>
+    <!-- Elemento -->
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="_0dp">0dp</dimen>
+    <dimen name="_4dp">4dp</dimen>
+    <dimen name="_5dp">5dp</dimen>
+    <dimen name="_10dp">10dp</dimen>
+    <dimen name="_15">15dp</dimen>
+    <dimen name="_50">50dp</dimen>
+    <dimen name="_70">70dp</dimen>
+
+
+    <!-- Fuentes -->
+    <dimen name="_13sp">13sp</dimen>
+    <dimen name="_15sp">15sp</dimen>
+    <dimen name="_16sp">16sp</dimen>
+    <dimen name="_18sp">18sp</dimen>
+    <dimen name="_20sp">20sp</dimen>
+    <dimen name="_22sp">22sp</dimen>
 </resources>
