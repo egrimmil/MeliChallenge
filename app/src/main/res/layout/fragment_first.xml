@@ -15,6 +15,10 @@
             type="Boolean" />
 
         <variable
+            name="empty"
+            type="Boolean" />
+
+        <variable
             name="viewModel"
             type="co.com.challenge.presentation.viewModels.ProductListViewModel" />
     </data>
@@ -74,11 +78,28 @@
                 android:id="@+id/rvProducts"
                 android:visibility="@{safeUnbox(cargando)? View.GONE : safeUnbox(error) ? View.GONE : View.VISIBLE}"
                 tools:visibility="visible"
-                app:setAdapter="@{viewModel.getProductsAdapter}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/holder_product"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:id="@+id/contentEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal|center_vertical"
+                android:visibility="@{safeUnbox(empty)? View.VISIBLE: View.GONE}">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frag_inicio_text"
+                    android:textSize="@dimen/_20sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

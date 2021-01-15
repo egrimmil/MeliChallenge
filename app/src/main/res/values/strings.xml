@@ -11,7 +11,8 @@
     <!-- FragmentFirst -->
     <string name="frag_fir_error">Ha ocurrido un error, por favor vuelve a intentar</string>
     <string name="frag_fir_error_empty">No se encontraron productos relacionados</string>
-    <string name="previous">Previous</string>
+    <string name="frag_inicio_text">¿En que estas pensando?</string>
 
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- SecondFragment -->
+    <string name="frag_sec_sold">Vendidos %1$s</string>
 </resources>

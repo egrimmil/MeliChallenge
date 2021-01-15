@@ -1,6 +1,7 @@
 package co.com.challenge.network
 
 import co.com.challenge.BuildConfig
+import co.com.challenge.data.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.internal.platform.Platform
 import retrofit2.Retrofit

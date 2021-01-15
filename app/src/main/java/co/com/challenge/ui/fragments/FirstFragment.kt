@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import co.com.challenge.R
 import co.com.challenge.databinding.FragmentFirstBinding
 import co.com.challenge.presentation.state.State
@@ -32,18 +33,27 @@ class FirstFragment : Fragment() {
             null,
             false
         )
+        binding.empty = true
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initListeners()
         initView()
+        initRecyclerView()
+        initListeners()
+    }
 
+    private fun initRecyclerView() {
+        viewModel.listMoviesAdapter = ListProductsAdapter()
+        binding.rvProducts.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            adapter = viewModel.listMoviesAdapter
+        }
     }
     private fun initListeners() {
-        ListProductsAdapter().onClickItem = {
+        viewModel.listMoviesAdapter!!.onClickItem = {
             val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(it)
             findNavController().navigate(action)
         }
@@ -52,6 +62,7 @@ class FirstFragment : Fragment() {
     private fun initView(){
         viewModel.stateGetProductsList.observe(viewLifecycleOwner, Observer {
             it.let { state ->
+                binding.empty = false
                 when(state){
                     is State.Loading -> binding.cargando = true
                     is State.Success -> {

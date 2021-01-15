@@ -8,6 +8,8 @@ import co.com.challenge.R
 import co.com.challenge.databinding.HolderProductBinding
 import co.com.challenge.domain.models.ProductModel
 import co.com.challenge.presentation.viewModels.ProductListViewModel
+import com.bumptech.glide.Glide
+import okhttp3.internal.notifyAll
 
 /**
  * Created by Elkin Fracica on 1/11/21.
@@ -25,7 +27,11 @@ class ListProductsAdapter() : RecyclerView.Adapter<ListProductsAdapter.ViewHolde
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //holder.binding.nameUser.text = listUsers[position].name
+        holder.binding.product = listUsers[position]
+        Glide.with(holder.itemView)
+            .load(listUsers[position].thumbnail)
+            .into(holder.binding.imgHoldProd)
+
         holder.itemView.setOnClickListener {
             onClickItem(listUsers[position])
         }
